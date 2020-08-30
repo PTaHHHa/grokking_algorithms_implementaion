@@ -1,9 +1,10 @@
-import random
 import time
+import random_list_generator
 
 
 def binary_search(random_list_size, number):
-    generated_list = generate_random_list(random_list_size)
+    generated_list = random_list_generator.generate_random_list(random_list_size)
+    generated_list.sort()
     first_index, last_index = 0, random_list_size - 1
     counter = 0
     while first_index <= last_index:
@@ -20,20 +21,8 @@ def binary_search(random_list_size, number):
     print(f'Total steps: {counter}')
 
 
-def generate_random_list(random_list_size):
-    random_list = []
-    print('Generating random list...')
-    for i in range(random_list_size):
-        random_number = random.randint(1, random_list_size)
-        random_list.append(random_number)
-    random_list.sort()
-    return random_list
-
-
-print('Enter number of elements in list: ')
-random_list_size_input = input()
-print('Enter number to find in list: ')
-number_input = input()
+random_list_size_input = input('Enter number of elements in list: ')
+number_input = input('Enter number to find in list: ')
 start_time = time.time()
 binary_search(int(random_list_size_input), int(number_input))
 stop_time = time.time()
