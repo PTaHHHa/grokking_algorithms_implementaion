@@ -6,6 +6,7 @@ def selection_sort(random_list_size):
     random_list = random_list_generator.generate_random_list(random_list_size)
     start = time.time()
     print(f'{random_list}\n')
+    print('Sorting start\n')
     for i in range(len(random_list)):
         for j in range(i+1, len(random_list)):
             if random_list[j] < random_list[i]:
